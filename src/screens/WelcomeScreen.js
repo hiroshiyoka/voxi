@@ -33,7 +33,9 @@ const WelcomeScreen = () => {
         />
       </View>
       <TouchableOpacity className="bg-emerald-600 mx-5 p-4 rounded-2xl">
-        <Text className="text-center font-bold text-white text-2xl">
+        <Text
+          style={{ fontSize: wp(6) }}
+          className="text-center font-bold text-white text-2xl">
           Get Started
         </Text>
       </TouchableOpacity>

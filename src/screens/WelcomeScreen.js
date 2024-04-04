@@ -10,8 +10,11 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import { useNavigation } from "@react-navigation/native";
 
 const WelcomeScreen = () => {
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView className="flex flex-1 justify-around bg-white">
       <View className="space-y-2">
@@ -34,6 +37,7 @@ const WelcomeScreen = () => {
       </View>
       <TouchableOpacity className="bg-emerald-600 mx-5 p-4 rounded-2xl">
         <Text
+          onPress={() => navigation("Home")}
           style={{ fontSize: wp(6) }}
           className="text-center font-bold text-white text-2xl">
           Get Started

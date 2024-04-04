@@ -28,8 +28,8 @@ const WelcomeScreen = () => {
       </View>
       <View className="flex-row justify-center">
         <Image
+          style={{ width: wp(75), height: hp(75) }}
           source={require("../../assets/images/welcome.png")}
-          className="w-72 h-72"
         />
       </View>
       <TouchableOpacity className="bg-emerald-600 mx-5 p-4 rounded-2xl">

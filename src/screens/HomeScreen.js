@@ -123,6 +123,12 @@ const HomeScreen = () => {
               <Text className="text-white font-semibold">Clear</Text>
             </TouchableOpacity>
           )}
+
+          {messages.length > 0 && (
+            <TouchableOpacity className="bg-red-400 rounded-3xl p-2 absolute left-10">
+              <Text className="text-white font-semibold">Stop</Text>
+            </TouchableOpacity>
+          )}
         </View>
       </SafeAreaView>
     </View>

@@ -18,6 +18,10 @@ const HomeScreen = () => {
   const [messages, setMessages] = useState(dummyMessages);
   const [recording, setRecording] = useState(false);
 
+  const clear = () => {
+    setMessages([]);
+  };
+
   return (
     <View className="flex-1 bg-white">
       <SafeAreaView className="flex flex-1 mx-5">
@@ -112,7 +116,9 @@ const HomeScreen = () => {
           )}
 
           {messages.length > 0 && (
-            <TouchableOpacity className="bg-neutral-400 rounded-3xl p-2 absolute right-10">
+            <TouchableOpacity
+              onPress={clear}
+              className="bg-neutral-400 rounded-3xl p-2 absolute right-10">
               <Text className="text-white font-semibold">Clear</Text>
             </TouchableOpacity>
           )}

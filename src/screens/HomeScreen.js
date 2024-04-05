@@ -1,4 +1,11 @@
-import { View, Text, SafeAreaView, Image, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import React, { useState } from "react";
 import {
   widthPercentageToDP as wp,
@@ -47,7 +54,7 @@ const HomeScreen = () => {
                               source={{ uri: message.content }}
                               className="rounded-2xl"
                               resizeMode="contain"
-                              style={{ height: hp(60), width: wp(60) }}
+                              style={{ height: wp(60), width: wp(60) }}
                             />
                           </View>
                         </View>
@@ -82,6 +89,17 @@ const HomeScreen = () => {
         ) : (
           <Features />
         )}
+
+        {/* Recording, Clear, and Stop Buttons */}
+        <View className="flex justify-center items-center">
+          <TouchableOpacity>
+            <Image
+              className="rounded-full"
+              source={require("../../assets/images/recording-icon.png")}
+              style={{ width: hp(10), height: hp(10) }}
+            />
+          </TouchableOpacity>
+        </View>
       </SafeAreaView>
     </View>
   );

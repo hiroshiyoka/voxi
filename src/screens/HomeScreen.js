@@ -16,6 +16,7 @@ import { dummyMessages } from "../constants";
 
 const HomeScreen = () => {
   const [messages, setMessages] = useState(dummyMessages);
+  const [recording, setRecording] = useState(false);
 
   return (
     <View className="flex-1 bg-white">

@@ -5,9 +5,10 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import Features from "../components/Features";
+import { dummyMessages } from "../constants";
 
 const HomeScreen = () => {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState(dummyMessages);
 
   return (
     <View className="flex-1 bg-white">

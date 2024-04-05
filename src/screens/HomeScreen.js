@@ -93,13 +93,23 @@ const HomeScreen = () => {
 
         {/* Recording, Clear, and Stop Buttons */}
         <View className="flex justify-center items-center">
-          <TouchableOpacity>
-            <Image
-              className="rounded-full"
-              source={require("../../assets/images/recording-icon.png")}
-              style={{ width: hp(10), height: hp(10) }}
-            />
-          </TouchableOpacity>
+          {recording ? (
+            <TouchableOpacity>
+              <Image
+                className="rounded-full"
+                source={require("../../assets/images/recording.gif")}
+                style={{ width: hp(10), height: hp(10) }}
+              />
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity>
+              <Image
+                className="rounded-full"
+                source={require("../../assets/images/recording-icon.png")}
+                style={{ width: hp(10), height: hp(10) }}
+              />
+            </TouchableOpacity>
+          )}
         </View>
       </SafeAreaView>
     </View>

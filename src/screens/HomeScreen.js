@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, Image } from "react-native";
+import { View, Text, SafeAreaView, Image, ScrollView } from "react-native";
 import React, { useState } from "react";
 import {
   widthPercentageToDP as wp,
@@ -22,7 +22,25 @@ const HomeScreen = () => {
         </View>
 
         {/* Features || Messages */}
-        {messages.length > 0 ? <View></View> : <Features />}
+        {messages.length > 0 ? (
+          <View className="space-y-2 flex-1">
+            <Text
+              style={{ fontSize: wp(5) }}
+              className="text-gray-700 font-semibold ml-1">
+              Assistant
+            </Text>
+            <View
+              style={{ height: hp(58) }}
+              className="bg-neutral-200 rounded-3xl p-4">
+              <ScrollView
+                bounces={false}
+                className="space-y-4"
+                showsVerticalScrollIndicator={false}></ScrollView>
+            </View>
+          </View>
+        ) : (
+          <Features />
+        )}
       </SafeAreaView>
     </View>
   );

@@ -17,6 +17,7 @@ import { dummyMessages } from "../constants";
 const HomeScreen = () => {
   const [messages, setMessages] = useState(dummyMessages);
   const [recording, setRecording] = useState(false);
+  const [speaking, setSpeaking] = useState(false);
 
   const clear = () => {
     setMessages([]);

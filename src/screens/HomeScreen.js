@@ -20,6 +20,23 @@ const HomeScreen = () => {
   const [recording, setRecording] = useState(false);
   const [speaking, setSpeaking] = useState(true);
 
+  const SpeechStartHandler = e => {
+    console.log("Speech Start Handler");
+  };
+
+  const SpeechEndHandler = e => {
+    setRecording(false);
+    console.log("Speech End Handler");
+  };
+
+  const SpeechResultsHandler = e => {
+    console.log("Voice Event: ", e);
+  };
+
+  const SpeechErrorHandler = e => {
+    console.log("Speech Error Handler: ", e);
+  };
+
   const clear = () => {
     setMessages([]);
   };

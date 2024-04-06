@@ -32,6 +32,7 @@ const HomeScreen = () => {
     Voice.onSpeechStart = SpeechStartHandler;
     Voice.onSpeechEnd = SpeechEndHandler;
     Voice.onSpeechResults = SpeechResultsHandler;
+    Voice.onSpeechError = SpeechErrorHandler;
   }, []);
 
   return (

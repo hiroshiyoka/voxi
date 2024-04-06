@@ -13,6 +13,7 @@ import {
 } from "react-native-responsive-screen";
 import Features from "../components/Features";
 import { dummyMessages } from "../constants";
+import Voice from "@react-native-community/voice";
 
 const HomeScreen = () => {
   const [messages, setMessages] = useState(dummyMessages);

@@ -19,6 +19,7 @@ const HomeScreen = () => {
   const [messages, setMessages] = useState(dummyMessages);
   const [recording, setRecording] = useState(false);
   const [speaking, setSpeaking] = useState(true);
+  const [result, setResult] = useState("");
 
   const SpeechStartHandler = e => {
     console.log("Speech Start Handler");
@@ -31,6 +32,8 @@ const HomeScreen = () => {
 
   const SpeechResultsHandler = e => {
     console.log("Voice Event: ", e);
+    const text = e.value[0];
+    setResult(text);
   };
 
   const SpeechErrorHandler = e => {

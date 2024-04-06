@@ -29,9 +29,9 @@ const HomeScreen = () => {
   };
 
   useEffect(() => {
-    Voice.onSpeechStart = this.onSpeechStartHandler.bind(this);
-    Voice.onSpeechEnd = this.onSpeechEndHandler.bind(this);
-    Voice.onSpeechResults = this.onSpeechResultsHandler.bind(this);
+    Voice.onSpeechStart = SpeechStartHandler;
+    Voice.onSpeechEnd = SpeechEndHandler;
+    Voice.onSpeechResults = SpeechResultsHandler;
   }, []);
 
   return (

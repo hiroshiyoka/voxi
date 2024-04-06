@@ -37,6 +37,25 @@ const HomeScreen = () => {
     console.log("Speech Error Handler: ", e);
   };
 
+  const startRecording = async () => {
+    setRecording(true);
+
+    try {
+      await Voice.start("en-GB"); // en-US
+    } catch (error) {
+      console.log("Error", error);
+    }
+  };
+
+  const stopRecording = async () => {
+    try {
+      await Voice.stop();
+      setRecording(false);
+    } catch (error) {
+      console.log("Error", error);
+    }
+  };
+
   const clear = () => {
     setMessages([]);
   };

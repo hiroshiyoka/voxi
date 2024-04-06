@@ -151,7 +151,8 @@ const HomeScreen = () => {
         {/* Recording, Clear, and Stop Buttons */}
         <View className="flex justify-center items-center">
           {recording ? (
-            <TouchableOpacity>
+            <TouchableOpacity onPress={stopRecording}>
+              {/* Recording Stop */}
               <Image
                 className="rounded-full"
                 source={require("../../assets/images/recording.gif")}
@@ -159,7 +160,8 @@ const HomeScreen = () => {
               />
             </TouchableOpacity>
           ) : (
-            <TouchableOpacity>
+            <TouchableOpacity onPress={startRecording}>
+              {/* Recording Start */}
               <Image
                 className="rounded-full"
                 source={require("../../assets/images/recording-icon.png")}

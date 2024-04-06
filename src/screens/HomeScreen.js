@@ -33,6 +33,10 @@ const HomeScreen = () => {
     Voice.onSpeechEnd = SpeechEndHandler;
     Voice.onSpeechResults = SpeechResultsHandler;
     Voice.onSpeechError = SpeechErrorHandler;
+
+    return () => {
+      Voice.destroy().then(Voice.removeAllListeners);
+    };
   }, []);
 
   return (

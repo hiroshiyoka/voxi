@@ -18,9 +18,9 @@ import Voice from "@react-native-community/voice";
 import { apiCall } from "../api/openAI";
 
 const HomeScreen = () => {
-  const [messages, setMessages] = useState(dummyMessages);
+  const [messages, setMessages] = useState([]);
   const [recording, setRecording] = useState(false);
-  const [speaking, setSpeaking] = useState(true);
+  const [speaking, setSpeaking] = useState(false);
   const [result, setResult] = useState("");
 
   const SpeechStartHandler = e => {

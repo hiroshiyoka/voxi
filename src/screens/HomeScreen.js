@@ -13,7 +13,6 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import Features from "../components/Features";
-import { dummyMessages } from "../constants";
 import Voice from "@react-native-community/voice";
 import { apiCall } from "../api/openAI";
 
@@ -22,6 +21,7 @@ const HomeScreen = () => {
   const [recording, setRecording] = useState(false);
   const [speaking, setSpeaking] = useState(false);
   const [result, setResult] = useState("");
+  const [loading, setLoading] = useState(false);
   const scrollViewRef = useRef();
 
   const SpeechStartHandler = e => {
@@ -70,7 +70,9 @@ const HomeScreen = () => {
       newMessages.push({ role: "user", content: result.trim() });
       setMessages([...messages]);
       updateScrollView();
+      setLoading(true);
       apiCall(result.trim(), newMessages).then(result => {
+        setLoading(false);
         if (result.success) {
           setMessages([...result.data]);
           updateScrollView();

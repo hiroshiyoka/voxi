@@ -60,6 +60,11 @@ const dalleApiCall = async (prompt, messages) => {
       n: 1,
       size: "512x512",
     });
+
+    let url = result.data?.data[0]?.url;
+    console.log("Got url of the image: ", url);
+    messages.push({ role: "assistant", content: url });
+    return Promise.resolve({ success: true, data: messages });
   } catch (error) {
     console.log("Error: ", error);
     return Promise.resolve({ success: false, message: error.message });

@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   Alert,
 } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -22,6 +22,7 @@ const HomeScreen = () => {
   const [recording, setRecording] = useState(false);
   const [speaking, setSpeaking] = useState(false);
   const [result, setResult] = useState("");
+  const scrollViewRef = useRef();
 
   const SpeechStartHandler = e => {
     console.log("Speech Start Handler");
@@ -122,6 +123,7 @@ const HomeScreen = () => {
               style={{ height: hp(58) }}
               className="bg-neutral-200 rounded-3xl p-4">
               <ScrollView
+                ref={scrollViewRef}
                 bounces={false}
                 className="space-y-4"
                 showsVerticalScrollIndicator={false}>

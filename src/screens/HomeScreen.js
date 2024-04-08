@@ -185,7 +185,12 @@ const HomeScreen = () => {
 
         {/* Recording, Clear, and Stop Buttons */}
         <View className="flex justify-center items-center">
-          {recording ? (
+          {loading ? (
+            <Image
+              source={require("../../assets/images/loading.gif")}
+              style={{ width: hp(10), height: hp(10) }}
+            />
+          ) : recording ? (
             <TouchableOpacity onPress={stopRecording}>
               {/* Recording Stop */}
               <Image

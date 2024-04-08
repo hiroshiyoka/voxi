@@ -69,16 +69,23 @@ const HomeScreen = () => {
       let newMessages = [...messages];
       newMessages.push({ role: "user", content: result.trim() });
       setMessages([...messages]);
-
+      updateScrollView();
       apiCall(result.trim(), newMessages).then(result => {
         if (result.success) {
           setMessages([...result.data]);
+          updateScrollView();
           setResult("");
         } else {
           Alert.alert("Error", result.message);
         }
       });
     }
+  };
+
+  const updateScrollView = () => {
+    setTimeout(() => {
+      ScrollViewRef?.current?.scrollToEnd({ animated: true });
+    }, 200);
   };
 
   const clear = () => {

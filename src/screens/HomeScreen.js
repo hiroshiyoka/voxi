@@ -14,6 +14,7 @@ import {
 import Features from "../components/Features";
 import { dummyMessages } from "../constants";
 import Voice from "@react-native-community/voice";
+import { apiCall } from "../api/openAI";
 
 const HomeScreen = () => {
   const [messages, setMessages] = useState(dummyMessages);
@@ -54,8 +55,22 @@ const HomeScreen = () => {
     try {
       await Voice.stop();
       setRecording(false);
+      // Fetch Response
+      fetchResponse();
     } catch (error) {
       console.log("Error", error);
+    }
+  };
+
+  const fetchResponse = () => {
+    if (result.trim().length > 0) {
+      let newMessages = [...messages];
+      newMessages.push({ role: "user", content: result.trim() });
+      setMessages([...messages]);
+
+      apiCall(result.trim(), newMessages).then(result => {
+        console.log(result);
+      });
     }
   };
 

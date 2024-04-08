@@ -23,6 +23,14 @@ export const apiCall = async (prompt, messages) => {
         },
       ],
     });
+
+    let isArt = result.data?.choices[0]?.message?.content;
+
+    if (isArt.toLowerCase().includes("yes")) {
+      console.log("DALL-E API Call");
+    } else {
+      console.log("ChatGPT API Call");
+    }
   } catch (error) {
     console.log("Error: ", error);
     return Promise.resolve({ success: false, message: error.message });

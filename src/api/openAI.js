@@ -36,3 +36,19 @@ export const apiCall = async (prompt, messages) => {
     return Promise.resolve({ success: false, message: error.message });
   }
 };
+
+const chatGptApiCall = async (prompt, messages) => {
+  try {
+    const result = await client.post(chatGptEndpoint, {
+      model: "gpt-3.5-turbo",
+      messages,
+    });
+
+    let answer = result.data?.choices[0]?.message?.content;
+    messages.push({ role: "assistant", content: answer.trim() });
+    return Promise.resolve({ success: true, data: messages });
+  } catch (error) {
+    console.log("Error: ", error);
+    return Promise.resolve({ success: false, message: error.message });
+  }
+};

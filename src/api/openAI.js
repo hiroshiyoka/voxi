@@ -52,3 +52,16 @@ const chatGptApiCall = async (prompt, messages) => {
     return Promise.resolve({ success: false, message: error.message });
   }
 };
+
+const dalleApiCall = async (prompt, messages) => {
+  try {
+    const result = await client.post(dalleEndpoint, {
+      prompt,
+      n: 1,
+      size: "512x512",
+    });
+  } catch (error) {
+    console.log("Error: ", error);
+    return Promise.resolve({ success: false, message: error.message });
+  }
+};

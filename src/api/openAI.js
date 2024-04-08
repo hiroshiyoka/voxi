@@ -28,8 +28,10 @@ export const apiCall = async (prompt, messages) => {
 
     if (isArt.toLowerCase().includes("yes")) {
       console.log("DALL-E API Call");
+      return dalleApiCall(prompt, messages || []);
     } else {
       console.log("ChatGPT API Call");
+      return chatGptApiCall(prompt, messages || []);
     }
   } catch (error) {
     console.log("Error: ", error);

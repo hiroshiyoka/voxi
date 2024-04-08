@@ -5,6 +5,7 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import {
@@ -69,7 +70,12 @@ const HomeScreen = () => {
       setMessages([...messages]);
 
       apiCall(result.trim(), newMessages).then(result => {
-        console.log(result);
+        if (result.success) {
+          setMessages([...result.data]);
+          setResult("");
+        } else {
+          Alert.alert("Error", result.message);
+        }
       });
     }
   };

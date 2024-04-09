@@ -147,7 +147,7 @@ const HomeScreen = () => {
                               source={{ uri: message.content }}
                               className="rounded-2xl"
                               resizeMode="contain"
-                              style={{ height: wp(55), width: wp(55) }}
+                              style={{ height: wp(60), width: wp(60) }}
                             />
                           </View>
                         </View>

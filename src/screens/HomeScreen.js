@@ -15,6 +15,7 @@ import {
 import Features from "../components/Features";
 import Voice from "@react-native-community/voice";
 import { apiCall } from "../api/openAI";
+import Tts from "react-native-tts";
 
 const HomeScreen = () => {
   const [messages, setMessages] = useState([]);

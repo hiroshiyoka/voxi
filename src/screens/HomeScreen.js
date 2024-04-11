@@ -78,9 +78,20 @@ const HomeScreen = () => {
           setMessages([...result.data]);
           updateScrollView();
           setResult("");
+          startTextToSpeech(result.data[result.data.length - 1]);
         } else {
           Alert.alert("Error", result.message);
         }
+      });
+    }
+  };
+
+  const startTextToSpeech = message => {
+    if (message.content.includes("https")) {
+      setSpeaking(true);
+      Tts.speak(message, content, {
+        iosVoiceId: "com.apple.ttsbundle.Moira-concept",
+        rate: 0.5,
       });
     }
   };

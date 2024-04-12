@@ -107,6 +107,7 @@ const HomeScreen = () => {
   };
 
   const stopSpeaking = () => {
+    Tts.stop();
     setSpeaking(false);
   };
 

@@ -67,6 +67,7 @@ const HomeScreen = () => {
 
   const fetchResponse = () => {
     if (result.trim().length > 0) {
+      Tts.stop();
       let newMessages = [...messages];
       newMessages.push({ role: "user", content: result.trim() });
       setMessages([...messages]);

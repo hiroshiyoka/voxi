@@ -46,6 +46,7 @@ const HomeScreen = () => {
 
   const startRecording = async () => {
     setRecording(true);
+    Tts.stop();
 
     try {
       await Voice.start("en-GB"); // en-US
@@ -67,7 +68,6 @@ const HomeScreen = () => {
 
   const fetchResponse = () => {
     if (result.trim().length > 0) {
-      Tts.stop();
       let newMessages = [...messages];
       newMessages.push({ role: "user", content: result.trim() });
       setMessages([...messages]);

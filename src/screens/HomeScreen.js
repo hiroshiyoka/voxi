@@ -120,10 +120,12 @@ const HomeScreen = () => {
     Voice.onSpeechError = SpeechErrorHandler;
 
     // Text to Speech Handler
-    Tts.addEventListener("tts-start", (event) => console.log("Start", event));
-    Tts.addEventListener("tts-progress", (event) => console.log("Progress", event));
-    Tts.addEventListener("tts-finish", (event) => console.log("Finish", event));
-    Tts.addEventListener("tts-cancel", (event) => console.log("Cancel", event));
+    Tts.addEventListener("tts-start", event => console.log("Start", event));
+    Tts.addEventListener("tts-progress", event =>
+      console.log("Progress", event),
+    );
+    Tts.addEventListener("tts-finish", event => console.log("Finish", event));
+    Tts.addEventListener("tts-cancel", event => console.log("Cancel", event));
 
     return () => {
       Voice.destroy().then(Voice.removeAllListeners);

@@ -124,7 +124,10 @@ const HomeScreen = () => {
     Tts.addEventListener("tts-progress", event =>
       console.log("Progress", event),
     );
-    Tts.addEventListener("tts-finish", event => console.log("Finish", event));
+    Tts.addEventListener("tts-finish", event => {
+      console.log("Finish", event);
+      setSpeaking(false);
+    });
     Tts.addEventListener("tts-cancel", event => console.log("Cancel", event));
 
     return () => {
